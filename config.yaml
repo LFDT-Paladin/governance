@@ -1,0 +1,35 @@
+teams:
+  - name: lf-staff
+    maintainers:
+      - ryjones
+      - jwagantall
+    members:
+      - christinaharter
+      - thelinuxfoundation
+  - name: paladin-admins
+    maintainers:
+      - ryjones
+    members:
+      - jimthematrix
+  - name: paladin-committers
+    maintainers:
+      - ryjones
+    members:
+      - jimthematrix
+      - EnriqueL8
+      - awrichar
+      - peterbroadhurst
+      - Chengxuan
+      - dwertent
+      - hosie
+      - gabriel-indik
+      - SamMayWork
+      - annamcallister
+      - matthew1001
+      - mjc-dev
+
+repositories:
+  - name: governance
+    teams:
+      lf-staff: maintain
+    visibility: public
