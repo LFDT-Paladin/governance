@@ -13,7 +13,7 @@ teams:
       - jimthematrix
   - name: paladin-committers
     maintainers:
-      - ryjones
+      - matthew1001
     members:
       - jimthematrix
       - EnriqueL8
@@ -25,7 +25,6 @@ teams:
       - gabriel-indik
       - SamMayWork
       - annamcallister
-      - matthew1001
       - mjc-dev
 
 repositories:
