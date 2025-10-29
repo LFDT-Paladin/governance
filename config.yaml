@@ -26,9 +26,33 @@ teams:
       - SamMayWork
       - annamcallister
       - mjc-dev
+  - name: zeto-admins
+    maintainers:
+      - ryjones
+    members:
+      - jimthematrix
+  - name: zeto-committers
+    maintainers:
+      - ryjones
+    members:
+      - jimthematrix
+      - EnriqueL8
+      - awrichar
+      - peterbroadhurst
+      - Chengxuan
 
 repositories:
   - name: governance
     teams:
       lf-staff: maintain
+    visibility: public
+  - name: paladin
+    teams:
+      paladin-admins: admin
+      paladin-committers: write
+    visibility: public
+  - name: zeto
+    teams:
+      zeto-admins: admin
+      zeto-committers: write
     visibility: public
