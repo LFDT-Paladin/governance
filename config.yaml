@@ -42,6 +42,12 @@ teams:
       - Chengxuan
 
 repositories:
+  - name: .github
+    teams:
+      lf-staff: maintain
+      paladin-admins: admin
+      paladin-committers: write
+    visibility: public
   - name: governance
     teams:
       lf-staff: maintain
