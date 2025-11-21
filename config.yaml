@@ -8,9 +8,9 @@ teams:
       - thelinuxfoundation
   - name: paladin-admins
     maintainers:
-      - ryjones
-    members:
       - jimthematrix
+    members:
+      - matthew1001
   - name: paladin-committers
     maintainers:
       - matthew1001
@@ -28,14 +28,13 @@ teams:
       - mjc-dev
   - name: zeto-admins
     maintainers:
-      - ryjones
-    members:
       - jimthematrix
+    members:
+      - matthew1001
   - name: zeto-committers
     maintainers:
-      - ryjones
-    members:
       - jimthematrix
+    members:
       - EnriqueL8
       - awrichar
       - peterbroadhurst
