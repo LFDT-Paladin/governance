@@ -39,6 +39,19 @@ teams:
       - awrichar
       - peterbroadhurst
       - Chengxuan
+  - name: smt-admins
+    maintainers:
+      - jimthematrix
+    members:
+      - matthew1001
+  - name: smt-committers
+    maintainers:
+      - jimthematrix
+    members:
+      - EnriqueL8
+      - awrichar
+      - peterbroadhurst
+      - Chengxuan
 
 repositories:
   - name: .github
@@ -60,4 +73,9 @@ repositories:
     teams:
       zeto-admins: admin
       zeto-committers: write
+    visibility: public
+  - name: smt
+    teams:
+      smt-admins: admin
+      smt-committers: write
     visibility: public
