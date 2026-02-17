@@ -62,7 +62,8 @@ repositories:
     visibility: public
   - name: governance
     teams:
-      lf-staff: maintain
+      lf-staff: admin
+      paladin-admins: maintain
     visibility: public
   - name: paladin
     teams:
