@@ -52,6 +52,18 @@ teams:
       - awrichar
       - peterbroadhurst
       - Chengxuan
+  - name: railgun-admins
+    maintainers:
+      - jimthematrix
+    members:
+      - matthew1001
+  - name: railgun-committers
+    maintainers:
+      - jimthematrix
+    members:
+      - awrichar
+      - peterbroadhurst
+      - Chengxuan
 
 repositories:
   - name: .github
