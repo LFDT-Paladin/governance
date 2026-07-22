@@ -92,3 +92,8 @@ repositories:
       smt-admins: admin
       smt-committers: write
     visibility: public
+  - name: railgun
+    teams:
+      railgun-admins: admin
+      railgun-committers: write
+    visibility: public
