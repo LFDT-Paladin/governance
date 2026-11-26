@@ -1,7 +1,7 @@
 {
   "name": "merge-queue",
   "target": "branch",
-  "enforcement": "evaluate",
+  "enforcement": "disabled",
   "conditions": {
     "ref_name": {
       "exclude": [],
@@ -24,5 +24,11 @@
       }
     }
   ],
-  "bypass_actors": []
+  "bypass_actors": [
+    {
+      "actor_id": 14737719,
+      "actor_type": "Team",
+      "bypass_mode": "pull_request"
+    }
+  ]
 }
