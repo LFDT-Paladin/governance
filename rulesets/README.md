@@ -3,7 +3,8 @@
 The branch rulesets of every repository in the LFDT-Paladin organization, as
 JSON, read from GitHub on 2026-11-25. GitHub does not read these files; they
 are kept here so that a change to branch protection can be reviewed in a pull
-request and then applied with [`apply.zsh`](apply.zsh).
+request and then applied with [`rules.zsh`](rules.zsh), which also reads
+changes back out of GitHub into these files.
 
 Each directory is named for a repository and holds one file per ruleset
 defined on that repository. [`_org`](_org) holds the two organization
@@ -15,28 +16,42 @@ links) are left out, as are two `pull_request` parameters the API returns but
 does not publish in its schema (`dismissal_restriction`,
 `require_extra_approval_for_unattributed_changes`).
 
-## Applying
+## Keeping the files and GitHub in step
 
 ```sh
-rulesets/apply.zsh                  # compare every directory with GitHub
-rulesets/apply.zsh paladin zeto     # compare only these
-rulesets/apply.zsh --apply paladin  # write the differences
+rulesets/rules.zsh                         # compare every directory with GitHub
+rulesets/rules.zsh paladin zeto            # compare only these
+rulesets/rules.zsh --apply paladin         # write these files to GitHub
+rulesets/rules.zsh --update-local          # write GitHub to these files
 ```
 
-Without `--apply` the script only reads. It prints one line per file: `same`,
-`differs` (followed by a diff of live against the file) or `missing`. With
-`--apply` it creates missing rulesets and updates differing ones. Rulesets are
-matched to files by the `name` field, so renaming a ruleset in a file creates
-a new one rather than renaming the old. A live ruleset that has no file is
-reported as `no file` and left alone; the script never deletes.
+With no mode flag the script only reads. It prints one line per file: `same`,
+`differs` (followed by a diff of live against the file) or `missing`, and
+reports any live ruleset that has no file here.
+
+`--apply` writes this directory to GitHub: it creates a missing ruleset and
+updates a differing one. `--update-local` writes GitHub to this directory: it
+updates a differing file, adds a file for a live ruleset that has none
+(named after the ruleset, lower case, so check the name it picks) and, when no
+directory arguments are given, adds a directory for a repository that has
+grown rulesets of its own. Use it to record a change someone made in the web
+UI, then describe the change in the tables below.
+
+Rulesets are matched to files by the `name` field, so renaming a ruleset in a
+file creates a new one rather than renaming the old. Neither mode deletes:
+`--apply` leaves a live ruleset that has no file alone (`no file`), and
+`--update-local` leaves a file whose ruleset is gone from GitHub alone
+(`no live`). Delete those by hand.
+
+A caller that cannot read bypass actors is shown an empty `bypass_actors` on
+every ruleset, so a write in either direction could silently drop them. The
+script skips any write that would empty a non-empty list and says so; use a
+token that can read bypass actors, or pass `--allow-bypass-removal` when the
+removal is meant. No ruleset here has a bypass actor today, so this should
+stay quiet.
 
 It needs `gh` and `jq`, and a token with admin on the repository (organization
 owner for `_org`).
-
-To add a ruleset, write a new JSON file in the repository's directory. To
-record a change made in the web UI, export the ruleset there (or
-`gh api repos/LFDT-Paladin/<repo>/rulesets/<id>`), replace the file, and check
-that `apply.zsh` reports `same`.
 
 ## Organization ([`_org`](_org))
 
